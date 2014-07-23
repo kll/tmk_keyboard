@@ -118,6 +118,19 @@ uint8_t matrix_scan(void)
     }
 #endif
 
+#ifdef KEYMAP_KLL
+    uint8_t layer = biton32(layer_state);
+
+    switch (layer) {
+    	case 0:
+			ergodox_board_led_off();
+			break;
+		default:
+			ergodox_board_led_on();
+			break;
+    }
+#endif
+
 #ifdef KEYMAP_CUB
     uint8_t layer = biton32(layer_state);
 
