@@ -117,7 +117,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,Q,   D,   R,   W,   B,   TRNS,
         TRNS,A,   S,   H,   T,   G,
         TRNS,Z,   X,   M,   C,   V,   TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,FN17,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
@@ -138,7 +138,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
         TRNS,NO,  NO,  NO,  TRNS,NO,
         TRNS,NO,  NO,  NO,  TRNS,NO,  TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,FN17,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
@@ -206,8 +206,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer5: F-keys instead of numbers, leftled:top/white
         // left hand
         TRNS,F1,  F2,  F3,  F4,  F5,  F6,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,P1,  P2,  P3,  P4,  P5,  TRNS,
+        TRNS,TRNS,TRNS,E,   TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
@@ -215,8 +215,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  TRNS,TRNS,TRNS,
         // right hand
              F7,  F8,  F9,  F10, F11, F12, TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,P6,  P7,  P8,  P9,  P0,  TRNS,
+                  TRNS,U,   TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
@@ -226,18 +226,18 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer6: F-keys + utils(Teensy, Workman-layer switch), leftled:top/white+onboard
         // left hand
-        TRNS,F1,  F2,  F3,  F4,  F5,  F6,
-        FN0, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        FN0, F1,  F2,  F3,  F4,  F5,  F6,
+        TRNS,P1,  P2,  P3,  P4,  P5,  TRNS,
+        TRNS,TRNS,TRNS,E,   TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         FN18,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             F7,  F8,  F9,  F10, F11, F12, TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN0,
-                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             F7,  F8,  F9,  F10, F11, F12, FN0,
+             TRNS,P6,  P7,  P8,  P9,  P0,  TRNS,
+                  TRNS,U,   TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
@@ -306,7 +306,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              NO,  NO,  NO,  NO,  NO,  NO,  TRNS,
              TRNS,NO,  FN12,FN13,FN14,FN15,FN10,
                   FN1, FN2, FN3, FN4, FN5, FN11,
-             TRNS,FN6, FN7, FN8, FN9, FN0, TRNS,
+             TRNS,TRNS,FN6, FN7, FN8, FN9, FN0,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -389,7 +389,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [5] =   ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
     [6] =   ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
     [7] =   ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
-    [8] =   ACTION_MODS_TAP_KEY(MOD_RALT, KC_INS),          // FN8  = RAlt   with tap Ins
+    [8] =   ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
     [9] =   ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
     [10] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN10 = RCtrl  with tap Space
 
