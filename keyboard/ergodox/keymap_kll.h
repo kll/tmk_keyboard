@@ -2,22 +2,22 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
         BSLS, 1,   2,   3,   4,   5,   ESC,
-         TAB, Q,   W,   E,   R,   T,   FN2,
-         EQL, A,   S,   D,   F,   G,
+        TAB,  Q,   W,   E,   R,   T,   FN2,
+        EQL,  A,   S,   D,   F,   G,
         LSFT, Z,   X,   C,   V,   B,   FN1,
-        LGUI,GRV, FN5,FN6,FN7,
-                                      LCTL,LALT,
-                                           HOME,
-                                 BSPC,DEL, END,
+        FN5,FN6,FN7,FN8,FN9,
+                                      FN10,FN11,
+                                           FN12,
+                                 BSPC,DEL, FN13,
         // right hand
              FN3, 6,   7,   8,   9,   0,   MINS,
              LBRC,Y,   U,   I,   O,   P,   RBRC,
                   H,   J,   K,   L,   SCLN,QUOT,
              FN1, N,   M,   COMM,DOT, SLSH,RSFT,
-                       LEFT,DOWN,UP,  RGHT,RGUI,
-        RALT,RCTL,
-        PGUP,
-        PGDN,ENT, SPC
+                       LEFT,DOWN,UP,  RGHT,GRAVE,
+        LGUI,APP,
+        PSCR,
+        INS,ENT, SPC
     ),
 
     KEYMAP(  // layer 1 : function and symbol keys
@@ -103,6 +103,13 @@ static const uint16_t PROGMEM fn_actions[] = {
     [5] =   ACTION_MODS_KEY(MOD_LCTL, KC_X),            // FN5 - cut
     [6] =   ACTION_MODS_KEY(MOD_LCTL, KC_C),            // FN6 - copy
     [7] =   ACTION_MODS_KEY(MOD_LCTL, KC_V),            // FN7 - paste
+    [8] =   ACTION_MODS_KEY(MOD_LCTL, KC_Z),            // FN8 - undo
+    [9] =   ACTION_MODS_KEY(MOD_LCTL, KC_S),            // FN9 - save
+
+    [10] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_HOME),     // FN10 = LCtrl with tap Home
+    [11] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_END),      // FN11 = LAlt with tap End
+    [12] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_PGUP),     // FN12 = LCtrl with tap PageUp
+    [13] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_PGDOWN),   // FN13 = LAlt with tap PageDown
 };
 
 void action_function(keyrecord_t *event, uint8_t id, uint8_t opt)
