@@ -2,9 +2,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
         BSLS, 1,   2,   3,   4,   5,   ESC,
-        TAB,  Q,   W,   E,   R,   T,   FN2, // push layer 2
+        TAB,  Q,   W,   E,   R,   T,   FN2, // to l2
         EQL,  A,   S,   D,   F,   G,
-        LSFT, Z,   X,   C,   V,   B,   FN1, // momentary layer 1
+        LSFT, Z,   X,   C,   V,   B,   FN1, // to l1
         FN5,FN6,FN7,FN8,FN9,
                                       FN10,FN11,
                                            FN12,
@@ -13,8 +13,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              FN3, 6,   7,   8,   9,   0,   MINS,
              LBRC,Y,   U,   I,   O,   P,   RBRC,
                   H,   J,   K,   L,   SCLN,QUOT,
-             FN1, N,   M,   COMM,DOT, SLSH,RSFT,
-                       LEFT,UP, DOWN, RGHT,GRAVE,
+   /*to l1*/ FN1, N,   M,   COMM,DOT, SLSH,RSFT,
+                       LEFT,DOWN,UP,  RGHT,GRAVE,
         LGUI,APP,
         PSCR,
         INS,ENT, SPC
@@ -23,28 +23,28 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 1 : F-keys
         // left hand
         TRNS,F1,  F2,  F3,  F4,  F5,  F11,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN4,  // push layer 0
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1, // to l0
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-            F12, F6,  F7,  F8,  F9,  F10, TRNS,
-            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                 TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             F12, F6,  F7,  F8,  F9,  F10, TRNS,
+             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+   /*to l1*/ FN1,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                       TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,
-        TRNS,
-        TRNS,TRNS,TRNS
+          TRNS,TRNS,
+          TRNS,
+          TRNS,TRNS,TRNS
     ),
 
     KEYMAP(  // layer 2 : mouse + media keys
         // left hand
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, FN4, // push layer 0
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, FN2, // to l0
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -52,9 +52,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             FN4, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  // push layer 0
-             TRNS,TRNS,WH_L,WH_U,WH_D,WH_R,TRNS,
-                  TRNS,MS_L,MS_U,MS_D,MS_R,TRNS,
+             FN4, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,WH_L,WH_D,WH_U,WH_R,TRNS,
+                  TRNS,MS_L,MS_D,MS_U,MS_R,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                        MPRV,VOLU,VOLD,MNXT,MUTE,
         TRNS,TRNS,
@@ -95,8 +95,8 @@ enum function_id {
 static const uint16_t PROGMEM fn_actions[] = {
     [0] =   ACTION_FUNCTION(TEENSY_KEY),                // FN0 - Teensy key
 
-    [1] =   ACTION_LAYER_MOMENTARY(1),                  // FN1 - switch to Layer1
-    [2] =   ACTION_LAYER_SET(2, ON_PRESS),              // FN2 - push Layer2
+    [1] =   ACTION_LAYER_TAP_TOGGLE(1),                 // FN1 - switch to Layer1
+    [2] =   ACTION_LAYER_TAP_TOGGLE(2),                 // FN2 - push Layer2
     [3] =   ACTION_LAYER_SET(3, ON_PRESS),              // FN3 - push Layer3
     [4] =   ACTION_LAYER_SET(0, ON_PRESS),              // FN4 - push Layer0
 
