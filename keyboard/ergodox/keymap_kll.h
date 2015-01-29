@@ -24,8 +24,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         FN6, F1,  F2,  F3,  F4,  F5,  F11,
         TRNS,TRNS,TRNS,TRNS,FN3,FN1, TRNS,
-        TRNS,TRNS,TRNS,FN4, TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN0, // to l0
+        TRNS,TRNS,FN11,FN4, TRNS,TRNS,
+        TRNS,FN10,FN7,FN8,FN9,TRNS,FN0,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
@@ -34,8 +34,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              F12, F6,  F7,  F8,  F9,  F10, TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                   TRNS,LEFT,DOWN,UP,  RGHT,TRNS,
-   /*to l0*/ FN0,TRNS,FN5,TRNS,TRNS, FN2,TRNS,
-                      TRNS,TRNS,TRNS,TRNS,TRNS,
+             FN0, TRNS,FN5, TRNS,TRNS,FN2, TRNS,
+                       TRNS,TRNS,TRNS,TRNS,TRNS,
           TRNS,TRNS,
           TRNS,
           TRNS,TRNS,TRNS
@@ -104,12 +104,6 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] =   ACTION_LAYER_SET(3, ON_PRESS),              // FN3 - push Layer3
     [4] =   ACTION_LAYER_SET(0, ON_PRESS),              // FN4 - push Layer0
 
-    [5] =   ACTION_MODS_KEY(MOD_LCTL, KC_X),            // FN5 - cut
-    [6] =   ACTION_MODS_KEY(MOD_LCTL, KC_C),            // FN6 - copy
-    [7] =   ACTION_MODS_KEY(MOD_LCTL, KC_V),            // FN7 - paste
-    [8] =   ACTION_MODS_KEY(MOD_LCTL, KC_Z),            // FN8 - undo
-    [9] =   ACTION_MODS_KEY(MOD_LCTL, KC_S),            // FN9 - save
-
     [10] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_HOME),     // FN10 = LCtrl with tap Home
     [11] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_END),      // FN11 = LAlt with tap End
     [12] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_PGUP),     // FN12 = LCtrl with tap PageUp
@@ -117,13 +111,18 @@ static const uint16_t PROGMEM fn_actions[] = {
 };
 
 static const uint16_t PROGMEM fn_actions_1[] = {
-    [0]  = ACTION_LAYER_TAP_TOGGLE(1),                   // FN0 - switch to Layer0
-    [1]  = ACTION_MODS_KEY(MOD_LCTL, KC_T),              // FN1 - Ctrl+T
-    [2]  = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_SLSH),// FN2 - Ctrl+Alt+/ (Comment with line comment)
-    [3]  = ACTION_FUNCTION(COMMAND_R),
-    [4]  = ACTION_FUNCTION(COMMAND_D),
-    [5]  = ACTION_FUNCTION(COMMAND_M),
-    [6]  = ACTION_FUNCTION(COMMAND_ESC),
+    [0]  = ACTION_LAYER_TAP_TOGGLE(1),                      // to Layer0
+    [1]  = ACTION_MODS_KEY(MOD_LCTL, KC_T),                 // go to everything
+    [2]  = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_SLSH),   // comment line
+    [3]  = ACTION_FUNCTION(COMMAND_R),                      // refactor - initiate & rename
+    [4]  = ACTION_FUNCTION(COMMAND_D),                      // duplicate, safe delete
+    [5]  = ACTION_FUNCTION(COMMAND_M),                      // refactor - safe delete
+    [6]  = ACTION_FUNCTION(COMMAND_ESC),                    // escape, refactor - cancel
+    [7]  = ACTION_MODS_KEY(MOD_LCTL, KC_X),                 // cut
+    [8]  = ACTION_MODS_KEY(MOD_LCTL, KC_C),                 // copy
+    [9]  = ACTION_MODS_KEY(MOD_LCTL, KC_V),                 // paste
+    [10] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),                 // undo
+    [11] = ACTION_MODS_KEY(MOD_LCTL, KC_S),                 // save
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
