@@ -2,22 +2,22 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
         ESC,  1,   2,   3,   4,   5,   BSLS,
-        TAB,  Q,   W,   E,   R,   T,   FN2, // to l2
+        TAB,  Q,   W,   E,   R,   T,   FN2,
         EQL,  A,   S,   D,   F,   G,
-        LSFT, Z,   X,   C,   V,   B,   FN1, // to l1
-        FN5,FN6,FN7,FN8,FN9,
-                                      FN10,FN11,
-                                           FN12,
-                                 BSPC,DEL, FN13,
+        LSFT, Z,   X,   C,   V,   B,   FN1,
+        NO,   NO,  NO,  NO,  NO,
+                                      HOME, END,
+                                           PGUP,
+                                 FN5, FN6,PGDN,
         // right hand
              FN3, 6,   7,   8,   9,   0,   MINS,
              LBRC,Y,   U,   I,   O,   P,   RBRC,
                   H,   J,   K,   L,   SCLN,QUOT,
-   /*to l1*/ FN1, N,   M,   COMM,DOT, SLSH,RSFT,
+             FN1, N,   M,   COMM,DOT, SLSH,RSFT,
                        LEFT,DOWN,UP,  RGHT,GRAVE,
         LGUI,APP,
         PSCR,
-        INS,ENT, SPC
+        INS,FN7, SPC
     ),
 
     KEYMAP(  // layer 1 : command layer
@@ -29,7 +29,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
-                                 TRNS,TRNS,TRNS,
+                                 FN12,FN13,TRNS,
         // right hand
              F12, F6,  F7,  F8,  F9,  F10, TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -38,7 +38,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        TRNS,TRNS,TRNS,TRNS,TRNS,
           TRNS,TRNS,
           TRNS,
-          TRNS,TRNS,TRNS
+          TRNS,FN14,FN15
     ),
 
     KEYMAP(  // layer 2 : mouse + media keys
@@ -73,7 +73,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             SLCK,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
+             FN4, NLCK,PSLS,PAST,PAST,PMNS,BSPC,
              TRNS,NO,  P7,  P8,  P9,  PMNS,BSPC,
                   NO,  P4,  P5,  P6,  PPLS,PENT,
              TRNS,NO,  P1,  P2,  P3,  PPLS,PENT,
@@ -97,17 +97,14 @@ enum function_id {
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-    [0] =   ACTION_FUNCTION(TEENSY_KEY),                // FN0 - Teensy key
-
-    [1] =   ACTION_LAYER_TAP_TOGGLE(1),                 // FN1 - switch to Layer1
-    [2] =   ACTION_LAYER_TAP_TOGGLE(2),                 // FN2 - push Layer2
-    [3] =   ACTION_LAYER_SET(3, ON_PRESS),              // FN3 - push Layer3
-    [4] =   ACTION_LAYER_SET(0, ON_PRESS),              // FN4 - push Layer0
-
-    [10] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_HOME),     // FN10 = LCtrl with tap Home
-    [11] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_END),      // FN11 = LAlt with tap End
-    [12] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_PGUP),     // FN12 = LCtrl with tap PageUp
-    [13] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_PGDOWN),   // FN13 = LAlt with tap PageDown
+    [0]  = ACTION_FUNCTION(TEENSY_KEY),                     // Teensy key
+    [1]  = ACTION_LAYER_TAP_TOGGLE(1),                      // to Layer1
+    [2]  = ACTION_LAYER_TAP_TOGGLE(2),                      // to Layer2
+    [3]  = ACTION_LAYER_SET(3, ON_PRESS),                   // to Layer3
+    [4]  = ACTION_LAYER_SET(0, ON_PRESS),                   // to Layer0
+    [5]  = ACTION_MODS_TAP_KEY(MOD_LALT, KC_BSPC),          // left alt or tap backspace
+    [6]  = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_DEL),           // left control or tap delete
+    [7]  = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),           // right control or tap enter
 };
 
 static const uint16_t PROGMEM fn_actions_1[] = {
@@ -123,14 +120,18 @@ static const uint16_t PROGMEM fn_actions_1[] = {
     [9]  = ACTION_MODS_KEY(MOD_LCTL, KC_V),                 // paste
     [10] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),                 // undo
     [11] = ACTION_MODS_KEY(MOD_LCTL, KC_S),                 // save
+    [12] = ACTION_MODS_TAP_KEY(MOD_LALT, KC_BSPC),          // left alt or tap backspace
+    [13] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_DEL),           // left control or tap delete
+    [14] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),           // right control or tap enter
+    [15] = ACTION_MODS_TAP_KEY(MOD_RALT, KC_SPC),           // right alt or tap space
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-    /*if (record->event.pressed) print("P"); else print("R");
-    printf("%d", record->tap.count);
-    if (record->tap.interrupted) print("i");
-    print("\n");*/
+    if (record->event.pressed) dprint("P"); else dprint("R");
+    dprintf("%d", record->tap.count);
+    if (record->tap.interrupted) dprint("i");
+    dprint("\n");
 
     static bool refactor_started;
 
