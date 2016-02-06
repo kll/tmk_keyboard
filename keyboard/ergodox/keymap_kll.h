@@ -1,23 +1,23 @@
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
-        BSLS,  1,   2,   3,   4,   5,   ESC,
-        TAB,  Q,   W,   E,   R,   T,   FN2,
-        EQL,  A,   S,   D,   F,   G,
-        LSFT, Z,   X,   C,   V,   B,   FN1,
-        NO,   NO,  NO,  NO,  NO,
-                                      HOME, END,
-                                           PGUP,
-                                 FN5, FN6,PGDN,
+        BSLS,    1,    2,    3,    4,    5,  ESC,
+         TAB,    Q,    W,    E,    R,    T,  FN2,
+         EQL,    A,    S,    D,    F,    G,
+        LSFT,    Z,    X,    C,    V,    B,  FN1,
+        LCTL, LGUI, LALT, RALT, RCTL,
+                                      HOME,  END,
+                                            PGUP,
+                                 FN5,  FN6, PGDN,
         // right hand
-             FN3, 6,   7,   8,   9,   0,   MINS,
-             LBRC,Y,   U,   I,   O,   P,   RBRC,
-                  H,   J,   K,   L,   SCLN,QUOT,
-             FN1, N,   M,   COMM,DOT, SLSH,RSFT,
-                       LEFT,DOWN,UP,  RGHT,GRAVE,
-        LGUI,APP,
+         FN3,    6,    7,    8,    9,    0, MINS,
+        LBRC,    Y,    U,    I,    O,    P, RBRC,
+                 H,    J,    K,    L, SCLN, QUOT,
+         FN1,    N,    M, COMM,  DOT, SLSH, RSFT,
+                    LEFT, DOWN,   UP, RGHT,GRAVE,
+        LGUI,  APP,
         PSCR,
-        INS,FN7, SPC
+         INS,  FN7, SPC
     ),
 
     KEYMAP(  // layer 1 : command layer
