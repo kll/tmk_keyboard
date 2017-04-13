@@ -1,4 +1,10 @@
-static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+#include <util/delay.h>
+#include "action_layer.h"
+#include "action_util.h"
+#include "bootloader.h"
+#include "keymap_common.h"
+
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
         BSLS, 1,   2,   3,   4,   5,   ESC,
@@ -92,7 +98,7 @@ enum function_id {
 /*
  * Fn action definition
  */
-static const uint16_t PROGMEM fn_actions[] = {
+const uint16_t PROGMEM fn_actions[] = {
     [0] =   ACTION_FUNCTION(TEENSY_KEY),                // FN0 - Teensy key
 
     [1] =   ACTION_LAYER_TAP_TOGGLE(1),                 // FN1 - switch to Layer1
