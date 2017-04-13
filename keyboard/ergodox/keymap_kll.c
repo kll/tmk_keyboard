@@ -7,70 +7,49 @@
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
-        BSLS, 1,   2,   3,   4,   5,   ESC,
-        TAB,  Q,   W,   E,   R,   T,   FN2, // to l2
-        EQL,  A,   S,   D,   F,   G,
-        LSFT, Z,   X,   C,   V,   B,   FN1, // to l1
-        FN5,FN6,FN7,FN8,FN9,
-                                      FN10,FN11,
-                                           FN12,
-                                 BSPC,DEL, FN13,
+        BSLS,    1,    2,    3,    4,    5,  ESC,
+         TAB,    Q,    W,    E,    R,    T,  FN1,
+         EQL,    A,    S,    D,    F,    G,
+        LSFT,    Z,    X,    C,    V,    B,  FN0,
+         FN6,  FN7,  FN8,  FN9, FN10,
+                                      HOME,  END,
+                                            PGUP,
+                                 FN4,  FN5, PGDN,
         // right hand
-             FN3, 6,   7,   8,   9,   0,   MINS,
-             LBRC,Y,   U,   I,   O,   P,   RBRC,
-                  H,   J,   K,   L,   SCLN,QUOT,
-   /*to l1*/ FN1, N,   M,   COMM,DOT, SLSH,RSFT,
-                       LEFT,DOWN,UP,  RGHT,GRAVE,
-        LGUI,APP,
+         FN2,    6,    7,    8,    9,    0, MINS,
+        LBRC,    Y,    U,    I,    O,    P, RBRC,
+                 H,    J,    K,    L, SCLN, QUOT,
+         FN0,    N,    M, COMM,  DOT, SLSH, RSFT,
+                    LEFT, DOWN,   UP, RGHT,GRAVE,
+        LGUI,  APP,
         PSCR,
-        INS,ENT, SPC
+         INS,  ENT, SPC
     ),
 
-    KEYMAP(  // layer 1 : F-keys
+    KEYMAP(  // layer 1 : function and symbol keys
         // left hand
-        TRNS,F1,  F2,  F3,  F4,  F5,  F11,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1, // to l0
-        TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
-                                           TRNS,
-                                 TRNS,TRNS,TRNS,
+        TRNS,   F1,   F2,   F3,   F4,   F5,  F11,
+        TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  FN3,
+        TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+        TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+        LCTL, LGUI, LALT, RALT, RCTL,
+                                      TRNS, TRNS,
+                                            TRNS,
+                                TRNS, TRNS, TRNS,
         // right hand
              F12, F6,  F7,  F8,  F9,  F10, TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-   /*to l1*/ FN1,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                      TRNS,TRNS,TRNS,TRNS,TRNS,
-          TRNS,TRNS,
-          TRNS,
-          TRNS,TRNS,TRNS
-    ),
-
-    KEYMAP(  // layer 2 : mouse + media keys
-        // left hand
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, FN2, // to l0
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
-                                           TRNS,
-                                 TRNS,TRNS,TRNS,
-        // right hand
-             FN4, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,WH_L,WH_D,WH_U,WH_R,TRNS,
-                  TRNS,MS_L,MS_D,MS_U,MS_R,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                       MPRV,VOLU,VOLD,MNXT,MUTE,
+                       TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
-        BTN3,BTN1,BTN2
+        TRNS,TRNS,TRNS
     ),
 
-    KEYMAP(  // layer 3: numpad + keyboard functions
+    KEYMAP(  // layer 2 : keyboard functions
         // left hand
-        FN0,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  // teensy key
+        BTLD,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -79,7 +58,28 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             SLCK,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
+             TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+                       TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,
+        TRNS,
+        TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // layer 3: numpad
+        // left hand
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,
+                                      TRNS,TRNS,
+                                           TRNS,
+                                 TRNS,TRNS,TRNS,
+        // right hand
+             TRNS,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
              TRNS,NO,  P7,  P8,  P9,  PMNS,BSPC,
                   NO,  P4,  P5,  P6,  PPLS,PENT,
              TRNS,NO,  P1,  P2,  P3,  PPLS,PENT,
@@ -89,42 +89,16 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS
     ),
 };
-
-/* id for user defined functions */
-enum function_id {
-    TEENSY_KEY,
-};
-
-/*
- * Fn action definition
- */
 const uint16_t PROGMEM fn_actions[] = {
-    [0] =   ACTION_FUNCTION(TEENSY_KEY),                // FN0 - Teensy key
-
-    [1] =   ACTION_LAYER_TAP_TOGGLE(1),                 // FN1 - switch to Layer1
-    [2] =   ACTION_LAYER_TAP_TOGGLE(2),                 // FN2 - push Layer2
-    [3] =   ACTION_LAYER_SET(3, ON_PRESS),              // FN3 - push Layer3
-    [4] =   ACTION_LAYER_SET(0, ON_PRESS),              // FN4 - push Layer0
-
-    [5] =   ACTION_MODS_KEY(MOD_LCTL, KC_X),            // FN5 - cut
-    [6] =   ACTION_MODS_KEY(MOD_LCTL, KC_C),            // FN6 - copy
-    [7] =   ACTION_MODS_KEY(MOD_LCTL, KC_V),            // FN7 - paste
-    [8] =   ACTION_MODS_KEY(MOD_LCTL, KC_Z),            // FN8 - undo
-    [9] =   ACTION_MODS_KEY(MOD_LCTL, KC_S),            // FN9 - save
-
-    [10] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_HOME),     // FN10 = LCtrl with tap Home
-    [11] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_END),      // FN11 = LAlt with tap End
-    [12] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_PGUP),     // FN12 = LCtrl with tap PageUp
-    [13] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_PGDOWN),   // FN13 = LAlt with tap PageDown
+    [0] = ACTION_LAYER_TAP_TOGGLE(1),                     // FN0  - to Layer1
+    [1] = ACTION_LAYER_TAP_TOGGLE(2),                     // FN1  - to Layer2
+    [2] = ACTION_LAYER_TOGGLE(3),                         // FN2  - toggle Layer3 aka Numpad layer
+    [3] = ACTION_LAYER_SET(0, ON_PRESS),                  // FN3  - set Layer0
+    [4] = ACTION_MODS_TAP_KEY(MOD_LALT, KC_BSPC),         // FN4  - left alt or tap backspace
+    [5] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_DEL),          // FN5  - left control or tap delete
+    [6] = ACTION_MODS_KEY(MOD_LCTL | MOD_LGUI, KC_F4),    // FN6  - close current virtual desktop
+    [7] = ACTION_MODS_KEY(MOD_LCTL | MOD_LGUI, KC_D),     // FN7  - create new virtual desktop
+    [8] = ACTION_MODS_KEY(MOD_LGUI, KC_TAB),              // FN8  - enter task view
+    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LGUI, KC_LEFT),  // FN9  - Switch virtual desktop left
+    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LGUI, KC_RGHT),  // FN10 - Switch virtual desktop right
 };
-
-void action_function(keyrecord_t *event, uint8_t id, uint8_t opt)
-{
-    if (id == TEENSY_KEY) {
-        clear_keyboard();
-        print("\n\nJump to bootloader... ");
-        _delay_ms(250);
-        bootloader_jump(); // should not return
-        print("not supported.\n");
-    }
-}
